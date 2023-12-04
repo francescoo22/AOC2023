@@ -1,7 +1,7 @@
 let read_file file = In_channel.with_open_bin file In_channel.input_all
 let input n = read_file ("test/inputs/Day_" ^ n ^ ".txt")
 let args = Sys.argv
-let max_day = 3
+let max_day = 4
 
 exception Invalid_day of string
 

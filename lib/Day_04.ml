@@ -12,7 +12,7 @@ let process_input str =
 let rec get_card_points_aux f default xs ys =
   match (xs, ys) with
   | x :: xs, y :: ys ->
-      if x == y then f (get_card_points_aux f default xs ys)
+      if x = y then f (get_card_points_aux f default xs ys)
       else if x > y then get_card_points_aux f default (x :: xs) ys
       else get_card_points_aux f default xs (y :: ys)
   | _, _ -> default
