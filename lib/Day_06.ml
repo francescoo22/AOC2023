@@ -23,9 +23,7 @@ let part_1 str =
 let part_2 str =
   let time, dist =
     match process_input_2 str with
-    | x :: y :: _ ->
-        ( List.fold_left (fun acc str -> acc ^ str) "" x,
-          List.fold_left (fun acc str -> acc ^ str) "" y )
+    | x :: y :: _ -> (List.fold_left ( ^ ) "" x, List.fold_left ( ^ ) "" y)
     | _ -> raise (Invalid_argument "input is not valid")
   in
   solve_diseq (-1.0)
