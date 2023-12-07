@@ -63,8 +63,9 @@ let map_seed wildcard_val card =
   | 'T' -> 'a'
   | _ -> card
 
-let compare wildcard_val card1 card2 =
-  if get_score card1 <> get_score card2 then get_score card1 - get_score card2
+let compare wildcard_val score_getter card1 card2 =
+  if score_getter card1 <> score_getter card2 then
+    score_getter card1 - score_getter card2
   else
     String.compare
       (String.map (map_seed wildcard_val) card1)
@@ -78,6 +79,6 @@ let get_total_score sorted_input =
   in
   res
 
-let part_1 str = parse_input str (compare 'b') |> get_total_score
-let part_2 str = parse_input str (compare '0') |> get_total_score
+let part_1 str = parse_input str (compare 'b' get_score) |> get_total_score
+let part_2 str = parse_input str (compare '0' get_score_2) |> get_total_score
 let main input = (part_1 input, part_2 input)
