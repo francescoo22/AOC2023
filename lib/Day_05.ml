@@ -1,5 +1,5 @@
 let process_input str =
-  Str.split (Str.regexp "\n\n") str |> List.map Utils.get_ints
+  Str.split (Str.regexp "\n\n") str |> List.map Utils.get_nats
 
 let rec apply_single_transf seed transf =
   match transf with

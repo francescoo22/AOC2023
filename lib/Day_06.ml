@@ -1,4 +1,4 @@
-let process_input str = String.split_on_char '\n' str |> List.map Utils.get_ints
+let process_input str = String.split_on_char '\n' str |> List.map Utils.get_nats
 
 let process_input_2 str =
   String.split_on_char '\n' str |> List.map (Str.split (Str.regexp "[^0-9]+"))
