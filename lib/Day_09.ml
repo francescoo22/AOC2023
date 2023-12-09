@@ -24,7 +24,9 @@ let get_val_2 seq =
   in
   List.fold_right
     (fun x acc ->
-      match x with x :: _ -> x - acc | _ -> raise (Failure "failll"))
+      match x with
+      | x :: _ -> x - acc
+      | _ -> raise (Invalid_argument "Invalid input"))
     (seq :: aux seq []) 0
 
 let part_1 str =
