@@ -1,7 +1,4 @@
-let process_input str =
-  String.split_on_char '\n' str
-  |> List.map String.to_seq |> List.map List.of_seq |> List.map Array.of_list
-  |> Array.of_list
+let process_input str = Utils.parse_char_grid str
 
 let is_valid_index i j grid =
   if i < Array.length grid && i >= 0 then j < Array.length grid.(i) && j >= 0
