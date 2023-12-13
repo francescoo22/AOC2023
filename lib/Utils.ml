@@ -11,6 +11,14 @@ let parse_char_grid str =
   |> List.map String.to_seq |> List.map List.of_seq |> List.map Array.of_list
   |> Array.of_list
 
+let rotate_grid grid =
+  match grid with
+  | [||] -> [||]
+  | _ ->
+      let rows = Array.length grid in
+      let cols = Array.length grid.(0) in
+      Array.init cols (fun j -> Array.init rows (fun i -> grid.(i).(j)))
+
 let string_of_chars lst = String.of_seq (List.to_seq lst)
 let rec gcd a b = if b = 0 then a else gcd b (a mod b)
 let lcm a b = a / gcd a b * (b / gcd a b)
