@@ -1,7 +1,7 @@
 let read_file file = In_channel.with_open_bin file In_channel.input_all
 let input n = read_file ("test/inputs/Day_" ^ n ^ ".txt")
 let args = Sys.argv
-let max_day = 13
+let max_day = 14
 
 exception Invalid_day of string
 
@@ -20,7 +20,7 @@ let get_both_ans day =
   | "11" -> AOC2023.Day_11.main (input "11")
   | "12" -> AOC2023.Day_12.main (input "12")
   | "13" -> AOC2023.Day_13.main (input "13")
-  (* | "14" -> AOC2023.Day_14.main (input "14") *)
+  | "14" -> AOC2023.Day_14.main (input "14")
   (* | "15" -> AOC2023.Day_15.main (input "15") *)
   (* | "16" -> AOC2023.Day_16.main (input "16") *)
   (* | "17" -> AOC2023.Day_17.main (input "17") *)
@@ -38,8 +38,11 @@ let get_both_ans day =
            ("Aoc day is not a number between 1 and " ^ string_of_int max_day))
 
 let print_ans day =
+  let t = Sys.time () in
   let part_1, part_2 = get_both_ans day in
-  Printf.printf "Day %s\nPart 1: %d\nPart 2: %d\n\n" day part_1 part_2
+  Printf.printf "Day %s\nPart 1: %d\nPart 2: %d\nExecution time: %fs\n\n" day
+    part_1 part_2
+    (Sys.time () -. t)
 
 let () =
   if Array.length args = 1 then
