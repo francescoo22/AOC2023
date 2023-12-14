@@ -36,13 +36,18 @@ let find_entry grid =
   Hashtbl.find_opt map (List.map Array.to_list (Array.to_list grid))
 
 let score grid =
-  let (_, res) = 
-  Array.fold_left
-    (fun (i, acc) line ->
-      ( i - 1,
-        acc + Array.fold_left (fun acc c -> if c = 'O' then acc + i else acc) 0 line
-      ))
-    (Array.length grid, 0) grid in res
+  let _, res =
+    Array.fold_left
+      (fun (i, acc) line ->
+        ( i - 1,
+          acc
+          + Array.fold_left
+              (fun acc c -> if c = 'O' then acc + i else acc)
+              0 line ))
+      (Array.length grid, 0)
+      grid
+  in
+  res
 
 let part_1 str =
   let grid = Utils.parse_char_grid str in
