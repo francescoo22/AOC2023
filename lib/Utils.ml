@@ -22,3 +22,12 @@ let rotate_grid grid =
 let string_of_chars lst = String.of_seq (List.to_seq lst)
 let rec gcd a b = if b = 0 then a else gcd b (a mod b)
 let lcm a b = a / gcd a b * (b / gcd a b)
+
+let foldi f (acc : 'acc) lst =
+  let rec aux i acc lst =
+    match lst with [] -> acc | x :: xs -> aux (i + 1) (f i acc x) xs
+  in
+  aux 0 acc lst
+
+let foldij f (acc : 'acc) mat =
+  foldi (fun i acc lst -> foldi (fun j acc el -> f i j acc el) acc lst) acc mat
