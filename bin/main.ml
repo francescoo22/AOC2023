@@ -1,7 +1,7 @@
 let read_file file = In_channel.with_open_bin file In_channel.input_all
 let get_input n = read_file ("test/inputs/Day_" ^ n ^ ".txt")
 let args = Sys.argv
-let max_day = 15
+let max_day = 16
 
 exception Invalid_day of string
 
@@ -23,7 +23,7 @@ let get_both_ans day input =
     | "13" -> AOC2023.Day_13.main
     | "14" -> AOC2023.Day_14.main
     | "15" -> AOC2023.Day_15.main
-    (* | "16" -> AOC2023.Day_16.main *)
+    | "16" -> AOC2023.Day_16.main
     (* | "17" -> AOC2023.Day_17.main *)
     (* | "18" -> AOC2023.Day_18.main *)
     (* | "19" -> AOC2023.Day_19.main *)
