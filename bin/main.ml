@@ -24,7 +24,7 @@ let get_both_ans day input =
     | "14" -> AOC2023.Day_14.main
     | "15" -> AOC2023.Day_15.main
     | "16" -> AOC2023.Day_16.main
-    (* | "17" -> AOC2023.Day_17.main *)
+    | "17" -> AOC2023.Day_17.main
     (* | "18" -> AOC2023.Day_18.main *)
     (* | "19" -> AOC2023.Day_19.main *)
     (* | "20" -> AOC2023.Day_20.main *)
